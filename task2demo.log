@@ -1,0 +1,179 @@
+02:39:17.931 [io-compute-3] INFO org.http4s.ember.server.EmberServerBuilderCompanionPlatform -- Ember-Server service bound to address: [::]:8083
+02:39:18.363 [io-compute-10] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 48ms; response: 402
+02:39:18.402 [io-compute-11] ERROR client.demo.ClientDemo -- Got response with status code 402 that isn't worth retrying. We only retry codes [500,502,503,504]. Error message was: user error
+02:39:18.407 [io-compute-11] ERROR client.demo.ClientDemo -- Switching circuit breaker from closed to open state due to error:
+java.lang.Exception: user error
+	at client.RetryingHttpClient.$anonfun$makeRetryDecision$4(RetryingHttpClient.scala:79)
+	at cats.syntax.FlatMapOps$.$anonfun$$greater$greater$1(flatMap.scala:54)
+	at delay @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.$anonfun$error$4(Slf4jLoggerInternal.scala:107)
+	at delay @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.isErrorEnabled(Slf4jLoggerInternal.scala:68)
+	at ifM$extension @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.info(Slf4jLoggerInternal.scala:91)
+	at >>$extension @ fs2.Pull$.fs2$Pull$$go$1(Pull.scala:1242)
+	at flatMap @ client.RetryingHttpClient.$anonfun$makeRetryDecision$2(RetryingHttpClient.scala:73)
+	at flatMap @ client.RetryingHttpClient.makeRetryDecision(RetryingHttpClient.scala:67)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$14(Http4sBackend.scala:89)
+	at >>$extension @ fs2.Pull$.fs2$Pull$$go$1(Pull.scala:1242)
+	at apply @ org.http4s.ember.server.EmberServerBuilder.$anonfun$build$2(EmberServerBuilder.scala:216)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$6(Http4sBackend.scala:60)
+02:39:18.410 [io-compute-11] ERROR client.demo.ClientDemo -- Error performing request to the external api.
+java.lang.Exception: user error
+	at client.RetryingHttpClient.$anonfun$makeRetryDecision$4(RetryingHttpClient.scala:79)
+	at cats.syntax.FlatMapOps$.$anonfun$$greater$greater$1(flatMap.scala:54)
+	at delay @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.$anonfun$error$4(Slf4jLoggerInternal.scala:107)
+	at delay @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.isErrorEnabled(Slf4jLoggerInternal.scala:68)
+	at ifM$extension @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.info(Slf4jLoggerInternal.scala:91)
+	at >>$extension @ fs2.Pull$.fs2$Pull$$go$1(Pull.scala:1242)
+	at flatMap @ client.RetryingHttpClient.$anonfun$makeRetryDecision$2(RetryingHttpClient.scala:73)
+	at flatMap @ client.RetryingHttpClient.makeRetryDecision(RetryingHttpClient.scala:67)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$14(Http4sBackend.scala:89)
+	at >>$extension @ fs2.Pull$.fs2$Pull$$go$1(Pull.scala:1242)
+	at apply @ org.http4s.ember.server.EmberServerBuilder.$anonfun$build$2(EmberServerBuilder.scala:216)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$6(Http4sBackend.scala:60)
+02:39:18.412 [io-compute-11] INFO client.demo.ClientDemo -- Circuit breaker open, trying again in 6 seconds.
+02:39:24.413 [io-compute-11] INFO client.demo.ClientDemo -- Circuit breaker open, trying again in 6 seconds.
+02:39:28.409 [io-compute-8] INFO client.demo.ClientDemo -- Switching circuit breaker to half open state due to timeout.
+02:39:30.424 [io-compute-5] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 2ms; response: 401
+02:39:30.431 [io-compute-8] ERROR client.demo.ClientDemo -- Switching circuit breaker back to open state due to error:
+java.lang.Exception: user error
+	at client.RetryingHttpClient.$anonfun$getData$6(RetryingHttpClient.scala:29)
+	at cats.syntax.EitherOps$.leftMap$extension(either.scala:193)
+	at client.RetryingHttpClient.$anonfun$getData$5(RetryingHttpClient.scala:29)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$14(Http4sBackend.scala:89)
+	at >>$extension @ fs2.Pull$.fs2$Pull$$go$1(Pull.scala:1242)
+	at apply @ org.http4s.ember.server.EmberServerBuilder.$anonfun$build$2(EmberServerBuilder.scala:216)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$6(Http4sBackend.scala:60)
+	at apply @ org.http4s.ember.server.EmberServerBuilder.$anonfun$build$2(EmberServerBuilder.scala:216)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$1(Http4sBackend.scala:59)
+	at recoverWith @ sttp.client3.impl.cats.CatsMonadError.handleWrappedError(CatsMonadError.scala:17)
+	at flatMap @ sttp.client3.impl.cats.CatsMonadError.flatMap(CatsMonadError.scala:12)
+	at flatMap @ client.RetryingHttpClient.$anonfun$getData$2(RetryingHttpClient.scala:29)
+	at flatMap @ client.RetryingHttpClient.getData(RetryingHttpClient.scala:24)
+02:39:30.432 [io-compute-8] ERROR client.demo.ClientDemo -- Error performing request to the external api.
+java.lang.Exception: user error
+	at client.RetryingHttpClient.$anonfun$getData$6(RetryingHttpClient.scala:29)
+	at cats.syntax.EitherOps$.leftMap$extension(either.scala:193)
+	at client.RetryingHttpClient.$anonfun$getData$5(RetryingHttpClient.scala:29)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$14(Http4sBackend.scala:89)
+	at >>$extension @ fs2.Pull$.fs2$Pull$$go$1(Pull.scala:1242)
+	at apply @ org.http4s.ember.server.EmberServerBuilder.$anonfun$build$2(EmberServerBuilder.scala:216)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$6(Http4sBackend.scala:60)
+	at apply @ org.http4s.ember.server.EmberServerBuilder.$anonfun$build$2(EmberServerBuilder.scala:216)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$1(Http4sBackend.scala:59)
+	at recoverWith @ sttp.client3.impl.cats.CatsMonadError.handleWrappedError(CatsMonadError.scala:17)
+	at flatMap @ sttp.client3.impl.cats.CatsMonadError.flatMap(CatsMonadError.scala:12)
+	at flatMap @ client.RetryingHttpClient.$anonfun$getData$2(RetryingHttpClient.scala:29)
+	at flatMap @ client.RetryingHttpClient.getData(RetryingHttpClient.scala:24)
+02:39:30.433 [io-compute-8] INFO client.demo.ClientDemo -- Circuit breaker open, trying again in 6 seconds.
+02:39:36.434 [io-compute-8] INFO client.demo.ClientDemo -- Circuit breaker open, trying again in 6 seconds.
+02:39:40.432 [io-compute-11] INFO client.demo.ClientDemo -- Switching circuit breaker to half open state due to timeout.
+02:39:42.445 [io-compute-2] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 3ms; response: 200
+02:39:42.451 [io-compute-13] INFO client.demo.ClientDemo -- API available again, switching circuit breaker back to closed state.
+02:39:42.451 [io-compute-13] INFO client.demo.ClientDemo -- Successfully performed request to the external api. Got response: hello
+02:39:42.461 [io-compute-7] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 2ms; response: 503
+02:39:42.468 [io-compute-10] WARN client.demo.ClientDemo -- Got response with status code 503 and error message: server error. Trying again in 0 seconds.
+02:39:42.476 [io-compute-12] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 2ms; response: 200
+02:39:42.480 [io-compute-3] INFO client.demo.ClientDemo -- Successfully performed request to the external api. Got response: hello
+02:39:42.490 [io-compute-2] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 2ms; response: 502
+02:39:42.495 [io-compute-8] WARN client.demo.ClientDemo -- Got response with status code 502 and error message: server error. Trying again in 0 seconds.
+02:39:42.503 [io-compute-3] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 3ms; response: 500
+02:39:42.509 [io-compute-8] WARN client.demo.ClientDemo -- Got response with status code 500 and error message: server error. Trying again in 1 second.
+02:39:43.516 [io-compute-0] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 1ms; response: 200
+02:39:43.520 [io-compute-12] INFO client.demo.ClientDemo -- Successfully performed request to the external api. Got response: hello
+02:39:43.526 [io-compute-5] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 1ms; response: 401
+02:39:43.530 [io-compute-0] ERROR client.demo.ClientDemo -- Got response with status code 401 that isn't worth retrying. We only retry codes [500,502,503,504]. Error message was: user error
+02:39:43.531 [io-compute-0] ERROR client.demo.ClientDemo -- Switching circuit breaker from closed to open state due to error:
+java.lang.Exception: user error
+	at client.RetryingHttpClient.$anonfun$makeRetryDecision$4(RetryingHttpClient.scala:79)
+	at cats.syntax.FlatMapOps$.$anonfun$$greater$greater$1(flatMap.scala:54)
+	at delay @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.$anonfun$error$4(Slf4jLoggerInternal.scala:107)
+	at delay @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.isErrorEnabled(Slf4jLoggerInternal.scala:68)
+	at ifM$extension @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.info(Slf4jLoggerInternal.scala:91)
+	at >>$extension @ fs2.Pull$.fs2$Pull$$go$1(Pull.scala:1242)
+	at flatMap @ client.RetryingHttpClient.$anonfun$makeRetryDecision$2(RetryingHttpClient.scala:73)
+	at flatMap @ client.RetryingHttpClient.makeRetryDecision(RetryingHttpClient.scala:67)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$14(Http4sBackend.scala:89)
+	at >>$extension @ fs2.Pull$.fs2$Pull$$go$1(Pull.scala:1242)
+	at apply @ org.http4s.ember.server.EmberServerBuilder.$anonfun$build$2(EmberServerBuilder.scala:216)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$6(Http4sBackend.scala:60)
+02:39:43.531 [io-compute-0] ERROR client.demo.ClientDemo -- Error performing request to the external api.
+java.lang.Exception: user error
+	at client.RetryingHttpClient.$anonfun$makeRetryDecision$4(RetryingHttpClient.scala:79)
+	at cats.syntax.FlatMapOps$.$anonfun$$greater$greater$1(flatMap.scala:54)
+	at delay @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.$anonfun$error$4(Slf4jLoggerInternal.scala:107)
+	at delay @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.isErrorEnabled(Slf4jLoggerInternal.scala:68)
+	at ifM$extension @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.info(Slf4jLoggerInternal.scala:91)
+	at >>$extension @ fs2.Pull$.fs2$Pull$$go$1(Pull.scala:1242)
+	at flatMap @ client.RetryingHttpClient.$anonfun$makeRetryDecision$2(RetryingHttpClient.scala:73)
+	at flatMap @ client.RetryingHttpClient.makeRetryDecision(RetryingHttpClient.scala:67)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$14(Http4sBackend.scala:89)
+	at >>$extension @ fs2.Pull$.fs2$Pull$$go$1(Pull.scala:1242)
+	at apply @ org.http4s.ember.server.EmberServerBuilder.$anonfun$build$2(EmberServerBuilder.scala:216)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$6(Http4sBackend.scala:60)
+02:39:43.531 [io-compute-0] INFO client.demo.ClientDemo -- Circuit breaker open, trying again in 6 seconds.
+02:39:49.532 [io-compute-0] INFO client.demo.ClientDemo -- Circuit breaker open, trying again in 6 seconds.
+02:39:53.531 [io-compute-13] INFO client.demo.ClientDemo -- Switching circuit breaker to half open state due to timeout.
+02:39:55.543 [io-compute-0] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 2ms; response: 200
+02:39:55.548 [io-compute-5] INFO client.demo.ClientDemo -- API available again, switching circuit breaker back to closed state.
+02:39:55.548 [io-compute-5] INFO client.demo.ClientDemo -- Successfully performed request to the external api. Got response: hello
+02:39:55.552 [io-compute-5] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 1ms; response: 200
+02:39:55.556 [io-compute-4] INFO client.demo.ClientDemo -- Successfully performed request to the external api. Got response: hello
+02:39:55.563 [io-compute-10] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 3ms; response: 503
+02:39:55.567 [io-compute-2] WARN client.demo.ClientDemo -- Got response with status code 503 and error message: server error. Trying again in 0 seconds.
+02:39:55.573 [io-compute-5] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 2ms; response: 200
+02:39:55.576 [io-compute-5] INFO client.demo.ClientDemo -- Successfully performed request to the external api. Got response: hello
+02:39:55.584 [io-compute-3] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 3ms; response: 500
+02:39:55.588 [io-compute-14] WARN client.demo.ClientDemo -- Got response with status code 500 and error message: server error. Trying again in 0 seconds.
+02:39:55.595 [io-compute-5] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 2ms; response: 503
+02:39:55.599 [io-compute-2] WARN client.demo.ClientDemo -- Got response with status code 503 and error message: server error. Trying again in 1 second.
+02:39:56.607 [io-compute-6] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 2ms; response: 502
+02:39:56.611 [io-compute-9] WARN client.demo.ClientDemo -- Got response with status code 502 and error message: server error. Trying again in 2 seconds.
+02:39:58.619 [io-compute-7] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 3ms; response: 200
+02:39:58.623 [io-compute-6] INFO client.demo.ClientDemo -- Successfully performed request to the external api. Got response: hello
+02:39:58.629 [io-compute-10] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 2ms; response: 200
+02:39:58.633 [io-compute-8] INFO client.demo.ClientDemo -- Successfully performed request to the external api. Got response: hello
+02:39:58.639 [io-compute-4] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 2ms; response: 503
+02:39:58.643 [io-compute-6] WARN client.demo.ClientDemo -- Got response with status code 503 and error message: server error. Trying again in 0 seconds.
+02:39:58.649 [io-compute-6] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 2ms; response: 200
+02:39:58.652 [io-compute-14] INFO client.demo.ClientDemo -- Successfully performed request to the external api. Got response: hello
+02:39:58.659 [io-compute-4] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 1ms; response: 500
+02:39:58.662 [io-compute-8] WARN client.demo.ClientDemo -- Got response with status code 500 and error message: server error. Trying again in 0 seconds.
+02:39:58.669 [io-compute-10] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 2ms; response: 200
+02:39:58.672 [io-compute-3] INFO client.demo.ClientDemo -- Successfully performed request to the external api. Got response: hello
+02:39:58.678 [io-compute-4] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 1ms; response: 500
+02:39:58.681 [io-compute-0] WARN client.demo.ClientDemo -- Got response with status code 500 and error message: server error. Trying again in 0 seconds.
+02:39:58.688 [io-compute-3] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 2ms; response: 500
+02:39:58.691 [io-compute-8] WARN client.demo.ClientDemo -- Got response with status code 500 and error message: server error. Trying again in 1 second.
+02:39:59.697 [io-compute-1] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 2ms; response: 500
+02:39:59.700 [io-compute-4] WARN client.demo.ClientDemo -- Got response with status code 500 and error message: server error. Trying again in 2 seconds.
+02:40:01.706 [io-compute-15] DEBUG sttp.tapir.server.http4s.Http4sDefaultServerLog -- Request: POST /hello, handled by: POST /hello, took: 1ms; response: 400
+02:40:01.711 [io-compute-11] ERROR client.demo.ClientDemo -- Retry limit of 3 has been reached. Last error message was: user error
+02:40:01.712 [io-compute-11] ERROR client.demo.ClientDemo -- Switching circuit breaker from closed to open state due to error:
+java.lang.Exception: user error
+	at client.RetryingHttpClient.$anonfun$makeRetryDecision$1(RetryingHttpClient.scala:70)
+	at cats.syntax.FlatMapOps$.$anonfun$$greater$greater$1(flatMap.scala:54)
+	at delay @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.$anonfun$error$4(Slf4jLoggerInternal.scala:107)
+	at delay @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.isErrorEnabled(Slf4jLoggerInternal.scala:68)
+	at ifM$extension @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.info(Slf4jLoggerInternal.scala:91)
+	at >>$extension @ fs2.Pull$.fs2$Pull$$go$1(Pull.scala:1242)
+	at flatMap @ client.RetryingHttpClient.makeRetryDecision(RetryingHttpClient.scala:67)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$14(Http4sBackend.scala:89)
+	at >>$extension @ fs2.Pull$.fs2$Pull$$go$1(Pull.scala:1242)
+	at apply @ org.http4s.ember.server.EmberServerBuilder.$anonfun$build$2(EmberServerBuilder.scala:216)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$6(Http4sBackend.scala:60)
+	at apply @ org.http4s.ember.server.EmberServerBuilder.$anonfun$build$2(EmberServerBuilder.scala:216)
+02:40:01.712 [io-compute-11] ERROR client.demo.ClientDemo -- Error performing request to the external api.
+java.lang.Exception: user error
+	at client.RetryingHttpClient.$anonfun$makeRetryDecision$1(RetryingHttpClient.scala:70)
+	at cats.syntax.FlatMapOps$.$anonfun$$greater$greater$1(flatMap.scala:54)
+	at delay @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.$anonfun$error$4(Slf4jLoggerInternal.scala:107)
+	at delay @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.isErrorEnabled(Slf4jLoggerInternal.scala:68)
+	at ifM$extension @ org.typelevel.log4cats.slf4j.internal.Slf4jLoggerInternal$Slf4jLogger.info(Slf4jLoggerInternal.scala:91)
+	at >>$extension @ fs2.Pull$.fs2$Pull$$go$1(Pull.scala:1242)
+	at flatMap @ client.RetryingHttpClient.makeRetryDecision(RetryingHttpClient.scala:67)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$14(Http4sBackend.scala:89)
+	at >>$extension @ fs2.Pull$.fs2$Pull$$go$1(Pull.scala:1242)
+	at apply @ org.http4s.ember.server.EmberServerBuilder.$anonfun$build$2(EmberServerBuilder.scala:216)
+	at flatMap @ sttp.client3.http4s.Http4sBackend.$anonfun$send$6(Http4sBackend.scala:60)
+	at apply @ org.http4s.ember.server.EmberServerBuilder.$anonfun$build$2(EmberServerBuilder.scala:216)
+
+Process finished with exit code 0
